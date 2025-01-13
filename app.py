@@ -92,13 +92,9 @@ if selected == "DTSC 691 Project":
     st.subheader("Please Select an X-ray Scan Image and Click on the Make Prediction Button.")
 
     # Generate a random batch of 10 images if not already in session_state
-    num_images_to_sample = 10
-    if len(image_files) < num_images_to_sample:
-        st.warning(f"Only {len(image_files)} images available. Sampling all available images.")
-        st.session_state.selected_images = image_files  # Use all images if fewer than 10
-    else:
-        st.session_state.selected_images = random.sample(image_files, num_images_to_sample)
-  
+    if 'selected_images' not in st.session_state:
+        st.session_state.selected_images = random.sample(image_files, 10)
+
     # Display the selected images and allow users to select images for batch prediction
     num_columns = 5
     columns = st.columns(num_columns)
@@ -108,6 +104,7 @@ if selected == "DTSC 691 Project":
         col = columns[idx % num_columns] 
         img_path = os.path.join(training_images, img_name)
         img = Image.open(img_path)
+
 
         # Display the image in the selected column with a checkbox for selection
         with col:
