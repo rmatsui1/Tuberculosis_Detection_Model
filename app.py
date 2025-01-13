@@ -52,7 +52,7 @@ if selected == "DTSC 691 Project":
     # Use relative path for loading the model
     model_path = "tuberculosisclassification2.keras"
     if not os.path.exists(model_path):
-        url = "https://github.com/rmatsui1/Tuberculosis-Detection-Model/raw/main/tuberculosisclassification2.keras"
+        url = "https://github.com/rmatsui1/Tuberculosis_Detection_Model/raw/main/tuberculosisclassification2.keras"
         response = requests.get(url)
         with open(model_path, "wb") as file:
             file.write(response.content)
@@ -60,7 +60,7 @@ if selected == "DTSC 691 Project":
     model = tf.keras.models.load_model(model_path)
 
     # Importing training data for image selection
-    training_images = r'C:\Users\Ricky\Desktop\School\_repos\Tuberculosis-Detection-Model\trainingdatatweb'
+    training_images = r'C:\Users\Ricky\Desktop\School\_repos\Tuberculosis_Detection_Model\trainingdatatweb'
     image_files = [f for f in os.listdir(training_images) if f.endswith(('.jpg', '.png', '.jpeg'))]
 
     # Function to preprocess images for prediction
