@@ -93,13 +93,12 @@ if selected == "DTSC 691 Project":
 
     # Generate a random batch of 10 images if not already in session_state
     num_images_to_sample = 10
-if len(image_files) < num_images_to_sample:
-    st.warning(f"Only {len(image_files)} images available. Sampling all available images.")
-    st.session_state.selected_images = image_files  # Use all images if fewer than 10
-else:
-    # Sample 10 random images from the available images
-    st.session_state.selected_images = random.sample(image_files, num_images_to_sample)
-
+    if len(image_files) < num_images_to_sample:
+        st.warning(f"Only {len(image_files)} images available. Sampling all available images.")
+        st.session_state.selected_images = image_files  # Use all images if fewer than 10
+    else:
+        st.session_state.selected_images = random.sample(image_files, num_images_to_sample)
+  
     # Display the selected images and allow users to select images for batch prediction
     num_columns = 5
     columns = st.columns(num_columns)
