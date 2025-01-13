@@ -61,10 +61,8 @@ if selected == "DTSC 691 Project":
 
     # Importing training data for image selection
     training_images = os.path.join(os.getcwd(), "trainingdataweb")
-    if os.path.exists(training_images):
-        image_files = [f for f in os.listdir(training_images) if f.endswith(('jpg', 'jpeg', 'png'))]
-    else:
-        print("The 'trainingdataweb' folder does not exist.")
+   
+    image_files = [f for f in os.listdir(training_images) if f.endswith(('jpg', 'jpeg', 'png'))]
 
     # Function to preprocess images for prediction
     def preprocess_image(img, target_size=(512, 512)):
