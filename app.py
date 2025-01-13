@@ -60,7 +60,7 @@ if selected == "DTSC 691 Project":
     model = tf.keras.models.load_model(model_path)
 
     # Importing training data for image selection
-    training_images = r'C:\Users\Ricky\Desktop\School\_repos\Tuberculosis_Detection_Model\trainingdatatweb'
+    training_images = "./trainingdataweb"
     image_files = [f for f in os.listdir(training_images) if f.endswith(('.jpg', '.png', '.jpeg'))]
 
     # Function to preprocess images for prediction
